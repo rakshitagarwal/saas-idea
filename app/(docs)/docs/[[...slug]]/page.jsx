@@ -53,7 +53,7 @@ export default async function DocPage({ params }) {
   const toc = await getTableOfContents(doc.body.raw);
 
   const images = await Promise.all(
-    doc.images.map(async (src: string) => ({
+    doc.images.map(async (src) => ({
       src,
       blurDataURL: await getBlurDataURL(src),
     })),

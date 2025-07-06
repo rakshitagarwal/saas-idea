@@ -17,9 +17,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
+}) {
   const page = allPages.find((page) => page.slugAsParams === params.slug);
   if (!page) {
     return;
@@ -35,10 +33,6 @@ export async function generateMetadata({
 
 export default async function PagePage({
   params,
-}: {
-  params: {
-    slug: string;
-  };
 }) {
   const page = allPages.find((page) => page.slugAsParams === params.slug);
 
@@ -47,7 +41,7 @@ export default async function PagePage({
   }
 
   const images = await Promise.all(
-    page.images.map(async (src: string) => ({
+    page.images.map(async (src) => ({
       src,
       blurDataURL: await getBlurDataURL(src),
     })),

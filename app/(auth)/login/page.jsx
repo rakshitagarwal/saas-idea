@@ -7,11 +7,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { UserAuthForm } from "@/components/forms/user-auth-form";
 import { Icons } from "@/components/shared/icons";
 
-export const metadata: Metadata = {
-  title: "Login",
-  description: "Login to your account",
-};
-
 export default function LoginPage() {
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">

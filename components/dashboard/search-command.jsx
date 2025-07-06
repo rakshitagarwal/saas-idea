@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { SidebarNavItem } from "@/types";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -16,12 +15,12 @@ import {
 } from "@/components/ui/command";
 import { Icons } from "@/components/shared/icons";
 
-export function SearchCommand({ links }: { links: SidebarNavItem[] }) {
+export function SearchCommand({ links }) {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
 
   React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
+    const down = (e) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
@@ -31,7 +30,7 @@ export function SearchCommand({ links }: { links: SidebarNavItem[] }) {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  const runCommand = React.useCallback((command: () => unknown) => {
+  const runCommand = React.useCallback((command) => {
     setOpen(false);
     command();
   }, []);
@@ -66,7 +65,7 @@ export function SearchCommand({ links }: { links: SidebarNavItem[] }) {
                   <CommandItem
                     key={item.title}
                     onSelect={() => {
-                      runCommand(() => router.push(item.href as string));
+                      runCommand(() => router.push(item.href));
                     }}
                   >
                     <Icon className="mr-2 size-5" />

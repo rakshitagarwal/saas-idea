@@ -31,9 +31,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
+}){
   const post = allPosts.find((post) => post.slugAsParams === params.slug);
   if (!post) {
     return;
@@ -50,10 +48,6 @@ export async function generateMetadata({
 
 export default async function PostPage({
   params,
-}: {
-  params: {
-    slug: string;
-  };
 }) {
   const post = allPosts.find((post) => post.slugAsParams === params.slug);
 
@@ -63,12 +57,12 @@ export default async function PostPage({
 
   const category = BLOG_CATEGORIES.find(
     (category) => category.slug === post.categories[0],
-  )!;
+  );
 
   const relatedArticles =
     (post.related &&
       post.related.map(
-        (slug) => allPosts.find((post) => post.slugAsParams === slug)!,
+        (slug) => allPosts.find((post) => post.slugAsParams === slug),
       )) ||
     [];
 
@@ -77,7 +71,7 @@ export default async function PostPage({
   const [thumbnailBlurhash, images] = await Promise.all([
     getBlurDataURL(post.image),
     await Promise.all(
-      post.images.map(async (src: string) => ({
+      post.images.map(async (src) => ({
         src,
         blurDataURL: await getBlurDataURL(src),
       })),

@@ -24,9 +24,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
+}) {
   const guide = allGuides.find((guide) => guide.slugAsParams === params.slug);
   if (!guide) {
     return;
@@ -42,10 +40,6 @@ export async function generateMetadata({
 
 export default async function GuidePage({
   params,
-}: {
-  params: {
-    slug: string;
-  };
 }) {
   const guide = allGuides.find((guide) => guide.slugAsParams === params.slug);
 

@@ -13,13 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-type ProjectType = {
-  title: string;
-  slug: string;
-  color: string;
-};
-
-const projects: ProjectType[] = [
+const projects= [
   {
     title: "Project 1",
     slug: "project-number-one",
@@ -31,12 +25,10 @@ const projects: ProjectType[] = [
     color: "bg-blue-500",
   },
 ];
-const selected: ProjectType = projects[1];
+const selected = projects[1];
 
 export default function ProjectSwitcher({
   large = false,
-}: {
-  large?: boolean;
 }) {
   const { data: session, status } = useSession();
   const [openPopover, setOpenPopover] = useState(false);
@@ -94,10 +86,6 @@ function ProjectList({
   selected,
   projects,
   setOpenPopover,
-}: {
-  selected: ProjectType;
-  projects: ProjectType[];
-  setOpenPopover: (open: boolean) => void;
 }) {
   return (
     <div className="flex flex-col gap-1">
