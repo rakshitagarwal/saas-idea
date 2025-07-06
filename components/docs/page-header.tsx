@@ -2,17 +2,12 @@ import { cn } from "@/lib/utils";
 
 import { Icons } from "../shared/icons";
 
-interface DocsPageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  heading: string;
-  text?: string;
-}
-
 export function DocsPageHeader({
   heading,
   text,
   className,
   ...props
-}: DocsPageHeaderProps) {
+}) {
   return (
     <>
       <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">

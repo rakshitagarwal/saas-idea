@@ -29,11 +29,7 @@ import {
 import { SectionColumns } from "@/components/dashboard/section-columns";
 import { Icons } from "@/components/shared/icons";
 
-interface UserNameFormProps {
-  user: Pick<User, "id" | "role">;
-}
-
-export function UserRoleForm({ user }: UserNameFormProps) {
+export function UserRoleForm({ user }) {
   const { update } = useSession();
   const [updated, setUpdated] = useState(false);
   const [isPending, startTransition] = useTransition();

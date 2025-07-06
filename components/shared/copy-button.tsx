@@ -7,11 +7,8 @@ import { cn } from "@/lib/utils";
 
 import { Icons } from "./icons";
 
-interface CopyButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  value: string;
-}
 
-export function CopyButton({ value, className, ...props }: CopyButtonProps) {
+export function CopyButton({ value, className, ...props }) {
   const [hasCopied, setHasCopied] = React.useState(false);
 
   React.useEffect(() => {

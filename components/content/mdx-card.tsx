@@ -2,18 +2,13 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  href?: string
-  disabled?: boolean
-}
-
 export function MdxCard({
   href,
   className,
   children,
   disabled,
   ...props
-}: CardProps) {
+}) {
   return (
     <div
       className={cn(

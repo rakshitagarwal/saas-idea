@@ -8,15 +8,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 
-interface ModalProps {
-  children: React.ReactNode;
-  className?: string;
-  showModal?: boolean;
-  setShowModal?: Dispatch<SetStateAction<boolean>>;
-  onClose?: () => void;
-  desktopOnly?: boolean;
-  preventDefaultClose?: boolean;
-}
 
 export function Modal({
   children,
@@ -26,7 +17,7 @@ export function Modal({
   onClose,
   desktopOnly,
   preventDefaultClose,
-}: ModalProps) {
+}) {
   // const router = useRouter();
 
   const closeModal = ({ dragged }: { dragged?: boolean } = {}) => {

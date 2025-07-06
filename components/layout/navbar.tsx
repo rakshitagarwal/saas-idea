@@ -17,12 +17,7 @@ import { ModalContext } from "@/components/modals/providers";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-interface NavBarProps {
-  scroll?: boolean;
-  large?: boolean;
-}
-
-export function NavBar({ scroll = false }: NavBarProps) {
+export function NavBar({ scroll = false }) {
   const router = useRouter()
   const scrolled = useScroll(50);
   const { data: session, status } = useSession();

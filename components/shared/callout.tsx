@@ -10,11 +10,6 @@ import {
 
 import { cn } from "@/lib/utils";
 
-interface CalloutProps {
-  twClass?: string;
-  children?: React.ReactNode;
-  type?: keyof typeof dataCallout;
-}
 
 const dataCallout = {
   default: {
@@ -64,7 +59,7 @@ export function Callout({
   twClass,
   type = "default",
   ...props
-}: CalloutProps) {
+}) {
   const { icon: Icon, classes } = dataCallout[type];
   return (
     <div

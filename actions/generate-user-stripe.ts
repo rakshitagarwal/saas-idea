@@ -6,15 +6,11 @@ import { getUserSubscriptionPlan } from "@/lib/subscription";
 import { absoluteUrl } from "@/lib/utils";
 import { redirect } from "next/navigation";
 
-export type responseAction = {
-  status: "success" | "error";
-  stripeUrl?: string;
-}
 
 // const billingUrl = absoluteUrl("/dashboard/billing")
 const billingUrl = absoluteUrl("/pricing")
 
-export async function generateUserStripe(priceId: string): Promise<responseAction> {
+export async function generateUserStripe(priceId) {
   let redirectUrl: string = "";
 
   try {

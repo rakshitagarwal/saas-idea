@@ -16,17 +16,7 @@ function flattenNode(node) {
   return p.join(``)
 }
 
-interface Item {
-  title: string
-  url: string
-  items?: Item[]
-}
-
-interface Items {
-  items?: Item[]
-}
-
-function getItems(node, current): Items {
+function getItems(node, current) {
   if (!node) {
     return {}
   }
@@ -68,11 +58,9 @@ const getToc = () => (node, file) => {
   file.data = getItems(table.map, {})
 }
 
-export type TableOfContents = Items
-
 export async function getTableOfContents(
   content: string
-): Promise<TableOfContents> {
+) {
   const result = await remark().use(getToc).process(content)
 
   return result.data

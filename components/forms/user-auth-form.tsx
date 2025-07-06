@@ -15,13 +15,9 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Icons } from "@/components/shared/icons";
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
-  type?: string;
-}
-
 type FormData = z.infer<typeof userAuthSchema>;
 
-export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
+export function UserAuthForm({ className, type, ...props }) {
   const {
     register,
     handleSubmit,

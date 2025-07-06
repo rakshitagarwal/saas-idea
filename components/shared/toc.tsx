@@ -6,11 +6,7 @@ import { useMounted } from "@/hooks/use-mounted";
 import { TableOfContents } from "@/lib/toc";
 import { cn } from "@/lib/utils";
 
-interface TocProps {
-  toc: TableOfContents;
-}
-
-export function DashboardTableOfContents({ toc }: TocProps) {
+export function DashboardTableOfContents({ toc }) {
   const itemIds = React.useMemo(
     () =>
       toc.items
@@ -80,13 +76,8 @@ function useActiveItem(itemIds: (string | undefined)[]) {
   return activeId;
 }
 
-interface TreeProps {
-  tree: TableOfContents;
-  level?: number;
-  activeItem?: string | null;
-}
 
-function Tree({ tree, level = 1, activeItem }: TreeProps) {
+function Tree({ tree, level = 1, activeItem }) {
   return tree?.items?.length && level < 3 ? (
     <ul className={cn("m-0 list-none", { "pl-4": level !== 1 })}>
       {tree.items.map((item, index) => {

@@ -5,15 +5,10 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-interface InfoLandingProps {
-  data: InfoLdg;
-  reverse?: boolean;
-}
-
 export default function InfoLanding({
   data,
   reverse = false,
-}: InfoLandingProps) {
+}) {
   return (
     <div className="py-10 sm:py-20">
       <MaxWidthWrapper className="grid gap-10 px-2.5 lg:grid-cols-2 lg:items-center lg:px-7">

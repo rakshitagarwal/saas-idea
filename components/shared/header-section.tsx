@@ -1,10 +1,5 @@
-interface HeaderSectionProps {
-  label?: string;
-  title: string;
-  subtitle?: string;
-}
 
-export function HeaderSection({ label, title, subtitle }: HeaderSectionProps) {
+export function HeaderSection({ label, title, subtitle }) {
   return (
     <div className="flex flex-col items-center text-center">
       {label ? (

@@ -23,11 +23,7 @@ import ProjectSwitcher from "@/components/dashboard/project-switcher";
 import { UpgradeCard } from "@/components/dashboard/upgrade-card";
 import { Icons } from "@/components/shared/icons";
 
-interface DashboardSidebarProps {
-  links: SidebarNavItem[];
-}
-
-export function DashboardSidebar({ links }: DashboardSidebarProps) {
+export function DashboardSidebar({ links }) {
   const path = usePathname();
 
   // NOTE: Use this if you want save in local storage -- Credits: Hosna Qasmei

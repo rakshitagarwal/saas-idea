@@ -199,12 +199,7 @@ const components = {
   ),
 };
 
-interface MdxProps {
-  code: string;
-  images?: { alt: string; src: string; blurDataURL: string }[];
-}
-
-export function Mdx({ code, images }: MdxProps) {
+export function Mdx({ code, images }) {
   const Component = useMDXComponent(code);
 
   const MDXImage = (props: any) => {

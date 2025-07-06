@@ -6,16 +6,12 @@ import { auth } from "@/auth";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
 
-export type responseAction = {
-  status: "success" | "error";
-  stripeUrl?: string;
-};
 
 const billingUrl = absoluteUrl("/dashboard/billing");
 
 export async function openCustomerPortal(
   userStripeId: string,
-): Promise<responseAction> {
+){
   let redirectUrl: string = "";
 
   try {

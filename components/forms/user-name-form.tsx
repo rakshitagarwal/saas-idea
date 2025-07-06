@@ -15,11 +15,7 @@ import { Label } from "@/components/ui/label";
 import { SectionColumns } from "@/components/dashboard/section-columns";
 import { Icons } from "@/components/shared/icons";
 
-interface UserNameFormProps {
-  user: Pick<User, "id" | "name">;
-}
-
-export function UserNameForm({ user }: UserNameFormProps) {
+export function UserNameForm({ user }) {
   const { update } = useSession();
   const [updated, setUpdated] = useState(false);
   const [isPending, startTransition] = useTransition();

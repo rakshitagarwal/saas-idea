@@ -14,9 +14,6 @@ import {
 import { cn, formatDate } from "@/lib/utils";
 import { UserSubscriptionPlan } from "types";
 
-interface BillingInfoProps extends React.HTMLAttributes<HTMLFormElement> {
-  userSubscriptionPlan: UserSubscriptionPlan;
-}
 
 export function BillingInfo({ userSubscriptionPlan }) {
   const title = 'Starter'
