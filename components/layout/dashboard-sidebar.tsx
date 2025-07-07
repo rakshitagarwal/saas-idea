@@ -163,9 +163,7 @@ export function DashboardSidebar({ links }) {
                 ))}
               </nav>
 
-              <div className="mt-auto xl:p-4">
-                {isSidebarExpanded ? <UpgradeCard /> : null}
-              </div>
+           
             </div>
           </aside>
         </ScrollArea>
@@ -252,9 +250,7 @@ export function MobileSheetSidebar({ links }: DashboardSidebarProps) {
                   </section>
                 ))}
 
-                <div className="mt-auto">
-                  <UpgradeCard />
-                </div>
+             
               </nav>
             </div>
           </ScrollArea>
