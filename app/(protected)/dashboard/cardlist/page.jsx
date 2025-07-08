@@ -5,6 +5,8 @@ import { getUserSubscriptionPlan } from "@/lib/subscription";
 import { constructMetadata } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { DashboardHeader } from "@/components/dashboard/header";
+import InfoCard from "@/components/dashboard/info-card";
+import { DiscountCardForm } from "@/components/forms/card-form";
 import { BillingInfo } from "@/components/pricing/billing-info";
 import { Icons } from "@/components/shared/icons";
 
@@ -19,32 +21,21 @@ export default async function BillingPage() {
   let userSubscriptionPlan;
   if (user && user.id && user.role === "USER") {
     userSubscriptionPlan = await getUserSubscriptionPlan(user.id);
-  } 
+  }
   return (
     <>
-      <DashboardHeader
-        heading="Card List"
-        text="Manage billing and your subscription plan."
-      />
-      <div className="grid gap-8">
-        <Alert className="!pl-14">
-          <Icons.warning />
-          <AlertTitle>This is a demo app.</AlertTitle>
-          <AlertDescription className="text-balance">
-            SaaS Starter app is a demo app using a Stripe test environment. You
-            can find a list of test card numbers on the{" "}
-            <a
-              href="https://stripe.com/docs/testing#cards"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-8"
-            >
-              Stripe docs
-            </a>
-            .
-          </AlertDescription>
-        </Alert>
-        <BillingInfo userSubscriptionPlan={userSubscriptionPlan} />
+      <DashboardHeader heading="Card List" text="List down your card here." />
+
+      <div className="flex flex-col gap-5">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4 xl:grid-cols-4">
+          <InfoCard heading="Credit/Debit" line1="type1 card" />
+          <InfoCard heading="Travel/Hotel" line1="type2 card" />
+          <InfoCard heading="Shopping/Food" line1="type3 card" />
+          <InfoCard heading="Membership/Other" line1="type4 card" />
+        </div>
+        <div className="flex justify-center">
+          <DiscountCardForm />
+        </div>
       </div>
     </>
   );
